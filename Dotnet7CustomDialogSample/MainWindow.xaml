@@ -1,0 +1,35 @@
+﻿<Window x:Class="Dotnet7CustomDialogSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dotnet7CustomDialogSample"
+        mc:Ignorable="d" WindowState="Maximized" MinHeight="500"
+        Title="Dotnet 7 custom messagebox implementation" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <GroupBox  Grid.Row="0" Header="Without Instance Implementation" Margin="5" BorderBrush="DarkBlue" BorderThickness="3">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="CustomAlertModalPopup" Margin="2" Width="Auto" Padding="5" Height="35" x:Name="CustomAlertModalPopup" Click="CustomAlertModalPopup_Click"/>
+                <Button Content="CustomConfirmModalPopup" Margin="2" Width="Auto" Padding="5" Height="35" x:Name="CustomConfirmModalPopup" Click="CustomConfirmModalPopup_Click"/>
+                <Button Content="ComprehensiveCustomAlertModalPopup" Margin="2" Width="Auto" Padding="5" Height="35" x:Name="ComprehensiveCustomAlertModalPopup" Click="ComprehensiveCustomAlertModalPopup_Click"/>
+                <Button Content="ComprehensiveCustomConfirmModalPopup" Margin="2" Width="Auto" Padding="5" Height="35" x:Name="ComprehensiveCustomConfirmModalPopup" Click="ComprehensiveCustomConfirmModalPopup_Click"/>
+                <Button Content="InputDialog" Margin="2" Width="Auto" Padding="5" Height="35" x:Name="InputDialog" Click="InputDialog_Click"/>
+                <Button Content="FileDialog" Margin="2" Width="Auto" Height="35" Padding="5" x:Name="FileDialog" Click="FileDialog_Click"   />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox  Grid.Row="1" Header="Dependency Injection Implementation" Margin="5" BorderBrush="DarkGray" BorderThickness="3">
+            <StackPanel Orientation="Horizontal">
+                <Button Command="{Binding ExecuteCustomAlertPopupCommand}" Content="CustomAlertModalPopup" Margin="2" Width="Auto" Padding="5" Height="35" />
+                <Button Command="{Binding ExecuteCustomConfirmPopupCommand}" Content="CustomConfirmModalPopup" Margin="2" Width="Auto" Padding="5" Height="35" />
+                <Button Command="{Binding ExecuteComprehensiveAlertPopupCommand}" Content="ComprehensiveCustomAlertModalPopup" Margin="2" Width="Auto" Padding="5" Height="35" />
+                <Button Command="{Binding ExecuteComprehensiveConfirmPopupCommand}" Content="ComprehensiveCustomConfirmModalPopup" Margin="2" Width="Auto" Padding="5" Height="35" />
+                <Button Command="{Binding ExecuteCustomInputPopupCommand}" Content="InputDialog" Margin="2" Width="Auto" Padding="5" Height="35" />
+                <Button Command="{Binding ExecuteCustomFilePopupCommand}" Content="FileDialog" Margin="2" Width="Auto" Height="35" Padding="5" />
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>
